@@ -1,324 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>BCA Course | Bachelor of Computer Applications</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilkantha Singha Roy | Official Website</title>
 
-<style>
-/* ---------- Global Reset ---------- */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-/* ---------- Body ---------- */
-body{
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:#fff;
-    scroll-behavior:smooth;
-}
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2980);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: #ffffff;
+        }
 
-/* ---------- Navbar ---------- */
-nav{
-    position:sticky;
-    top:0;
-    background:rgba(0,0,0,0.5);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    z-index:1000;
-}
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-nav h1{
-    font-size:26px;
-    letter-spacing:1px;
-    color:#00e5ff;
-}
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeDown 1.5s ease;
+        }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:20px;
-}
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
 
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    font-weight:500;
-    transition:0.3s;
-}
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
 
-nav ul li a:hover{
-    color:#00e5ff;
-}
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-/* ---------- Hero Section ---------- */
-.hero{
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    animation:fadeIn 2s ease;
-}
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: fadeUp 1.2s ease;
+        }
 
-.hero h2{
-    font-size:48px;
-    background:linear-gradient(to right,#00e5ff,#00ff9d);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.hero p{
-    max-width:700px;
-    font-size:18px;
-    margin-top:20px;
-    line-height:1.6;
-}
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #00c6ff;
+            padding-left: 10px;
+        }
 
-.hero button{
-    margin-top:30px;
-    padding:14px 30px;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    background:linear-gradient(to right,#00e5ff,#00ff9d);
-    color:#000;
-    transition:0.3s;
-}
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
 
-.hero button:hover{
-    transform:scale(1.1);
-}
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
 
-/* ---------- Section ---------- */
-section{
-    padding:80px 10%;
-}
+        .highlight {
+            color: #00c6ff;
+            font-weight: bold;
+        }
 
-section h2{
-    text-align:center;
-    font-size:36px;
-    margin-bottom:40px;
-    color:#00e5ff;
-}
+        /* CONTACT BUTTON */
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            box-shadow: 0 0 20px rgba(0,198,255,0.6);
+            transition: all 0.4s ease;
+        }
 
-/* ---------- Cards ---------- */
-.card-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
+        .contact-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 0 35px rgba(0,198,255,0.9);
+        }
 
-.card{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    border-radius:15px;
-    padding:25px;
-    transition:0.4s;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
 
-.card:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 0 30px rgba(0,229,255,0.6);
-}
+        section:hover {
+            transform: scale(1.02);
+            transition: 0.4s ease;
+        }
 
-.card h3{
-    color:#00ff9d;
-    margin-bottom:15px;
-}
-
-.card p, .card ul{
-    font-size:15px;
-    line-height:1.6;
-}
-
-.card ul{
-    padding-left:18px;
-}
-
-/* ---------- Syllabus ---------- */
-.syllabus ul li{
-    margin-bottom:10px;
-}
-
-/* ---------- Footer ---------- */
-footer{
-    background:#000;
-    padding:40px;
-    text-align:center;
-}
-
-footer p{
-    font-size:14px;
-    color:#aaa;
-}
-
-/* ---------- Animations ---------- */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* ---------- Responsive ---------- */
-@media(max-width:768px){
-    .hero h2{
-        font-size:36px;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav>
-    <h1>BCA Course</h1>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#eligibility">Eligibility</a></li>
-        <li><a href="#syllabus">Syllabus</a></li>
-        <li><a href="#career">Career</a></li>
-    </ul>
-</nav>
+    <header>
+        <h1>Nilkantha Singha Roy</h1>
+        <p>This website is owned and maintained by <span class="highlight">Nilkantha Singha Roy</span></p>
+    </header>
 
-<!-- Hero -->
-<div class="hero">
-    <h2>Bachelor of Computer Applications</h2>
-    <p>
-        A professional undergraduate program designed to build a strong foundation
-        in computer science, programming, software development and IT skills.
-    </p>
-    <button onclick="document.getElementById('about').scrollIntoView()">Explore Course</button>
-</div>
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            Welcome to my official website. This platform reflects my identity and work,
+            designed with modern UI effects, smooth animations, and a clean professional layout.
+        </p>
+    </section>
 
-<!-- About -->
-<section id="about">
-    <h2>About BCA</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Course Duration</h3>
-            <p>3 Years (6 Semesters)</p>
-        </div>
-        <div class="card">
-            <h3>Course Focus</h3>
-            <p>Programming, Software Development, Databases, Web Technologies & Computer Networks</p>
-        </div>
-        <div class="card">
-            <h3>Why BCA?</h3>
-            <p>Ideal for students aiming for careers in IT, software engineering, data and technology fields.</p>
-        </div>
-    </div>
-</section>
+    <section id="contact">
+        <h2>Contact</h2>
 
-<!-- Eligibility -->
-<section id="eligibility">
-    <h2>Eligibility Criteria</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Academic Qualification</h3>
-            <ul>
-                <li>10+2 from a recognized board</li>
-                <li>Mathematics/Computer Science preferred</li>
-            </ul>
+        <div class="contact-info">
+            <p>📞 Phone: <span class="highlight">7679241506</span></p>
+            <p>📧 Email: <span class="highlight">nilkanthasingharoy8@gmail.com</span></p>
         </div>
-        <div class="card">
-            <h3>Minimum Marks</h3>
-            <p>Typically 45% – 50% (varies by university)</p>
-        </div>
-        <div class="card">
-            <h3>Admission Process</h3>
-            <p>Merit-based or entrance exams depending on institution</p>
-        </div>
-    </div>
-</section>
 
-<!-- Syllabus -->
-<section id="syllabus">
-    <h2>BCA Syllabus Overview</h2>
-    <div class="card-container syllabus">
-        <div class="card">
-            <h3>Core Subjects</h3>
-            <ul>
-                <li>C Programming</li>
-                <li>Data Structures</li>
-                <li>Operating Systems</li>
-                <li>Database Management Systems</li>
-                <li>Computer Networks</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Advanced Topics</h3>
-            <ul>
-                <li>Java / Python</li>
-                <li>Web Development</li>
-                <li>Software Engineering</li>
-                <li>Cloud Computing</li>
-                <li>Cyber Security</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Practical Learning</h3>
-            <ul>
-                <li>Lab Sessions</li>
-                <li>Mini Projects</li>
-                <li>Final Year Project</li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <!-- CONTACT BUTTON -->
+        <a 
+           href="mailto:nilkanthasingharoy8@gmail.com"
+           class="contact-btn">
+           Contact Me
+        </a>
+    </section>
 
-<!-- Career -->
-<section id="career">
-    <h2>Career Opportunities</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Job Roles</h3>
-            <ul>
-                <li>Software Developer</li>
-                <li>Web Developer</li>
-                <li>System Analyst</li>
-                <li>Data Analyst</li>
-                <li>IT Support Engineer</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Higher Studies</h3>
-            <ul>
-                <li>MCA</li>
-                <li>MBA</li>
-                <li>M.Sc (Computer Science)</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Industries</h3>
-            <p>IT Companies, Startups, Banking, Education, Government & Research Organizations</p>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>
-        Information based on standard BCA curriculum followed by Indian Universities.<br>
-        References:
-        <br>
-        UGC – https://www.ugc.gov.in  
-        <br>
-        AICTE – https://www.aicte-india.org  
-        <br>
-        University of Delhi BCA Framework – https://www.du.ac.in
-    </p>
-</footer>
+    <footer>
+        © 2025 Nilkantha Singha Roy. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
