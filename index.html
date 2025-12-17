@@ -1,166 +1,242 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nilkantha Singha Roy | Official Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilkantha Singha Roy | Student Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --blue: #0057ff;
+    --red: #e53935;
+}
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2980);
-            background-size: 400% 400%;
-            animation: gradientBG 12s ease infinite;
-            color: #ffffff;
-        }
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+body {
+    background: var(--white);
+    color: var(--black);
+    scroll-behavior: smooth;
+}
 
-        header {
-            text-align: center;
-            padding: 80px 20px;
-            animation: fadeDown 1.5s ease;
-        }
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-bottom: 2px solid var(--blue);
+    z-index: 1000;
+}
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
+nav h2 {
+    font-size: 1.5rem;
+    color: var(--blue);
+}
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+nav a {
+    text-decoration: none;
+    margin-left: 22px;
+    color: var(--black);
+    font-weight: 500;
+    position: relative;
+}
 
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: var(--red);
+    transition: 0.3s;
+}
 
-        section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            animation: fadeUp 1.2s ease;
-        }
+nav a:hover::after {
+    width: 100%;
+}
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+/* SECTIONS */
+section {
+    max-width: 1000px;
+    margin: 120px auto 60px;
+    padding: 50px;
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease;
+}
 
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            border-left: 4px solid #00c6ff;
-            padding-left: 10px;
-        }
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
+/* HOME */
+#home {
+    text-align: center;
+}
 
-        .contact-info p {
-            margin: 8px 0;
-            font-size: 1.1rem;
-        }
+#home h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
 
-        .highlight {
-            color: #00c6ff;
-            font-weight: bold;
-        }
+#home span {
+    color: var(--blue);
+}
 
-        /* CONTACT BUTTON */
-        .contact-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 32px;
-            font-size: 1.1rem;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            box-shadow: 0 0 20px rgba(0,198,255,0.6);
-            transition: all 0.4s ease;
-        }
+/* ABOUT */
+#about h2,
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--red);
+    padding-left: 12px;
+}
 
-        .contact-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 0 35px rgba(0,198,255,0.9);
-        }
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
+/* SKILLS */
+.skills {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        section:hover {
-            transform: scale(1.02);
-            transition: 0.4s ease;
-        }
+.skill {
+    padding: 10px 22px;
+    border-radius: 30px;
+    background: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    animation: float 2.8s ease-in-out infinite;
+}
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+.skill:nth-child(even) {
+    background: var(--red);
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* CONTACT BUTTON */
+.contact-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 40px;
+    border-radius: 50px;
+    background: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 25px rgba(0,87,255,0.4);
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: var(--red);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(229,57,53,0.4);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    color: var(--black);
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        padding: 14px 20px;
+    }
+
+    section {
+        padding: 30px;
+    }
+
+    #home h1 {
+        font-size: 2.3rem;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Nilkantha Singha Roy</h1>
-        <p>This website is owned and maintained by <span class="highlight">Nilkantha Singha Roy</span></p>
-    </header>
+<nav>
+    <h2>Nilkantha</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>
-            Welcome to my official website. This platform reflects my identity and work,
-            designed with modern UI effects, smooth animations, and a clean professional layout.
-        </p>
-    </section>
+<section id="home">
+    <h1>Hi, I'm <span>Nilkantha Singha Roy</span></h1>
+    <p>Student Portfolio Website</p>
+</section>
 
-    <section id="contact">
-        <h2>Contact</h2>
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Hi, I am Nilkantha Singha Roy, currently pursuing BCA.
+        I am passionate about learning programming and modern web technologies
+        and continuously improving my development skills.
+    </p>
 
-        <div class="contact-info">
-            
-            <p>📧 Email: <span class="highlight">nilkanthasingharoy8@gmail.com</span></p>
-        </div>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">C</div>
+        <div class="skill">Python</div>
+    </div>
+</section>
 
-        <!-- CONTACT BUTTON -->
-        <a 
-           href="mailto:nilkanthasingharoy8@gmail.com"
-           class="contact-btn">
-           Contact Me
-        </a>
-    </section>
+<section id="contact">
+    <h2>Contact</h2>
+    <p>If you’d like to connect, feel free to email me.</p>
 
-    <footer>
-        © 2025 Nilkantha Singha Roy. All Rights Reserved.
-    </footer>
+    <a href="mailto:nilkanthasingharoy8@gmail.com" class="contact-btn">
+        Contact Me
+    </a>
+</section>
+
+<footer>
+    © 2025 Nilkantha Singha Roy. All rights reserved.
+</footer>
 
 </body>
 </html>
-
