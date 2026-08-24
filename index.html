@@ -1,242 +1,1514 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nilkantha Singha Roy | Student Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FixIt | On-Demand Household Services</title>
 
-<style>
-:root {
-    --white: #ffffff;
-    --black: #000000;
-    --blue: #0057ff;
-    --red: #e53935;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-}
-
-body {
-    background: var(--white);
-    color: var(--black);
-    scroll-behavior: smooth;
-}
-
-/* NAVBAR */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 16px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--white);
-    border-bottom: 2px solid var(--blue);
-    z-index: 1000;
-}
-
-nav h2 {
-    font-size: 1.5rem;
-    color: var(--blue);
-}
-
-nav a {
-    text-decoration: none;
-    margin-left: 22px;
-    color: var(--black);
-    font-weight: 500;
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: var(--red);
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* SECTIONS */
-section {
-    max-width: 1000px;
-    margin: 120px auto 60px;
-    padding: 50px;
-    background: var(--white);
-    border-radius: 18px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    animation: fadeUp 1s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HOME */
-#home {
-    text-align: center;
-}
-
-#home h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-#home span {
-    color: var(--blue);
-}
-
-/* ABOUT */
-#about h2,
-#contact h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    border-left: 5px solid var(--red);
-    padding-left: 12px;
-}
-
-#about p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-/* SKILLS */
-.skills {
-    margin-top: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.skill {
-    padding: 10px 22px;
-    border-radius: 30px;
-    background: var(--blue);
-    color: var(--white);
-    font-weight: bold;
-    animation: float 2.8s ease-in-out infinite;
-}
-
-.skill:nth-child(even) {
-    background: var(--red);
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-
-/* CONTACT BUTTON */
-.contact-btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 40px;
-    border-radius: 50px;
-    background: var(--blue);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(0,87,255,0.4);
-    transition: 0.3s;
-}
-
-.contact-btn:hover {
-    background: var(--red);
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(229,57,53,0.4);
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 25px;
-    font-size: 0.9rem;
-    color: var(--black);
-    opacity: 0.7;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    nav {
-        padding: 14px 20px;
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --surface: #ffffff;
+      --bg: #f8fafc;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    section {
-        padding: 30px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    #home h1 {
-        font-size: 2.3rem;
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-}
-</style>
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+
+    .logo-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.925rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover {
+      background: var(--bg);
+      border-color: #cbd5e1;
+    }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-success:hover { background: #059669; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover { background: #dc2626; }
+    .btn-sm {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.825rem;
+    }
+
+    .app-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .hidden { display: none !important; }
+
+    .auth-card {
+      max-width: 540px;
+      margin: 2rem auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .role-selection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .role-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .role-card:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .role-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.15rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.925rem;
+      background: var(--bg);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus, .form-select:focus {
+      background: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .hero-banner {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-banner p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .category-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      background: var(--primary-light);
+    }
+
+    .category-icon {
+      font-size: 2.5rem;
+      width: 68px;
+      height: 68px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .category-desc {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .provider-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .provider-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .provider-top {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .provider-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-light);
+    }
+
+    .provider-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .badge-verified {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #ecfdf5;
+      color: var(--success);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+
+    .provider-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: var(--bg);
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.725rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 1rem;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 480px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tracking-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    .track-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .track-step {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .step-bullet {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+      border: 2px solid var(--border);
+    }
+
+    .track-step.active .step-bullet {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .track-step.completed .step-bullet {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    .track-step.active, .track-step.completed {
+      color: var(--text-main);
+    }
+
+    .star-rating {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: #cbd5e1;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .star-rating .star.selected, .star-rating .star:hover {
+      color: var(--warning);
+    }
+
+    /* PARTNER DASHBOARD & STATEMENT STYLES */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-card-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .summary-card-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 0.35rem;
+    }
+
+    .statement-table-wrapper {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .statement-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+
+    .statement-table th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .statement-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .statement-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 0.25rem 0.55rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .status-pending { background: #fef3c7; color: #92400e; }
+    .status-accepted { background: #eff6ff; color: var(--primary); }
+    .status-completed { background: #ecfdf5; color: var(--success); }
+    .status-rejected { background: #fee2e2; color: var(--danger); }
+
+    @media(max-width:640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .role-selection-grid { grid-template-columns: 1fr; }
+      .provider-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-    <h2>Nilkantha</h2>
+<header>
+  <div class="nav-container">
+    <div class="logo" onclick="navigateTo('categories')">
+      <span>FixIt</span>
+      <span class="logo-badge">PRO</span>
+    </div>
+
+    <div class="user-actions">
+      <span id="userGreeting" class="hidden" style="font-size:0.9rem;font-weight:600;"></span>
+      <button id="partnerBookingsBtn" class="btn btn-secondary btn-sm hidden" onclick="navigateTo('partner_dashboard')">My Bookings & Account</button>
+      <button id="trackNavBtn" class="btn btn-secondary btn-sm hidden" onclick="navigateTo('tracking')">Track Bookings</button>
+      <button id="authBtn" class="btn btn-primary btn-sm" onclick="handleAuthButtonClick()">Login</button>
+    </div>
+  </div>
+</header>
+
+<div class="app-container">
+
+  <!-- ================= AUTH CONTAINER ================= -->
+  <div id="authView" class="hidden">
+    <div class="auth-card">
+
+      <!-- STEP 1: ROLE SELECTION -->
+      <div id="roleSelectionStep">
+        <h2 style="font-size:1.5rem;font-weight:700;text-align:center;">Welcome to FixIt</h2>
+        <p style="color:var(--text-muted);font-size:0.925rem;text-align:center;margin-top:0.35rem;">
+          Please select who you are to proceed
+        </p>
+
+        <div class="role-selection-grid">
+          <div class="role-card" onclick="selectAuthRole('customer')">
+            <div class="role-icon">👤</div>
+            <h3 style="font-size:1.1rem;font-weight:700;">Customer</h3>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Book technicians for home repairs</p>
+          </div>
+
+          <div class="role-card" onclick="selectAuthRole('partner')">
+            <div class="role-icon">🛠️</div>
+            <h3 style="font-size:1.1rem;font-weight:700;">FixIt Partner</h3>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Login or join as Service Specialist</p>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary" style="width:100%;margin-top:1.5rem;" onclick="navigateTo('categories')">Cancel</button>
+      </div>
+
+      <!-- STEP 2A: CUSTOMER LOGIN -->
+      <div id="customerLoginStep" class="hidden">
+        <h2 style="font-size:1.4rem;font-weight:700;">Customer Login</h2>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin:0.25rem 0 1.5rem;">Enter your registered mobile number</p>
+
+        <form onsubmit="handleCustomerLogin(event)">
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="custLoginPhone" class="form-input" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">Continue</button>
+        </form>
+
+        <p style="margin-top:1.5rem;margin-bottom:0.5rem;font-size:0.85rem;color:var(--text-muted);text-align:center;">Don't have an account?</p>
+        <button class="btn btn-secondary" style="width:100%;" onclick="showCustomerSignup()">Register as New Customer</button>
+        <button class="btn" style="width:100%;margin-top:0.5rem;font-size:0.85rem;" onclick="showRoleSelection()">← Back to role selection</button>
+      </div>
+
+      <!-- STEP 2B: CUSTOMER SIGNUP -->
+      <div id="customerSignupStep" class="hidden">
+        <h2 style="font-size:1.4rem;font-weight:700;">Customer Sign Up</h2>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin:0.25rem 0 1.5rem;">Create a new customer account</p>
+
+        <form onsubmit="handleCustomerSignup(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="custSignupName" class="form-input" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address <span style="color:#94a3b8;">(Optional)</span></label>
+            <input type="email" id="custSignupEmail" class="form-input" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="custSignupPhone" class="form-input" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">Get OTP</button>
+        </form>
+        <button class="btn btn-secondary" style="width:100%;margin-top:0.75rem;" onclick="showCustomerLogin()">← Back to Login</button>
+      </div>
+
+      <!-- STEP 2C: PARTNER LOGIN OR REGISTRATION -->
+      <div id="partnerSignupStep" class="hidden">
+        <h2 style="font-size:1.4rem;font-weight:700;">Partner Access</h2>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin:0.25rem 0 1.25rem;">Register a new profile or log in with your mobile</p>
+
+        <div style="background:#f1f5f9;padding:0.75rem;border-radius:var(--radius-sm);margin-bottom:1rem;font-size:0.85rem;">
+          💡 <strong>Tip:</strong> If you are already registered, enter your 10-digit mobile number below to directly receive OTP and log in.
+        </div>
+
+        <form onsubmit="handlePartnerSubmit(event)">
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="partnerPhone" class="form-input" placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}" required />
+          </div>
+
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="partnerName" class="form-input" placeholder="Technician Name" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Service Category</label>
+              <select id="partnerCategory" class="form-select" required>
+                <option value="Plumber">Plumber</option>
+                <option value="Electrician">Electrician</option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="AC Repair">AC Repair</option>
+                <option value="Computer Repair">Computer Repair</option>
+                <option value="Mechanic">Mechanic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Experience (Years)</label>
+              <input type="number" id="partnerExp" class="form-input" placeholder="e.g. 5" min="1" max="40" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Price Rate (e.g. ₹350/hr or ₹500/task)</label>
+            <input type="text" id="partnerRate" class="form-input" placeholder="₹400/hr or ₹500/task" required />
+          </div>
+
+          <div class="form-group">
+            <label>Profile Photo (JPG / JPEG / PNG)</label>
+            <input type="file" id="partnerPhotoInput" class="form-input" accept="image/jpeg, image/jpg, image/png" onchange="previewPhoto(event)" />
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">Verify Mobile with OTP</button>
+        </form>
+        <button class="btn btn-secondary" style="width:100%;margin-top:0.75rem;" onclick="showRoleSelection()">← Back to Role Selection</button>
+      </div>
+
+      <!-- STEP 3: COMMON OTP VERIFICATION -->
+      <div id="otpStep" class="hidden">
+        <h2 style="font-size:1.4rem;font-weight:700;text-align:center;">Verify OTP</h2>
+        <p style="color:var(--text-muted);font-size:0.875rem;text-align:center;margin:0.5rem 0 1.5rem;">
+          Enter the 6-digit code sent to <strong id="otpPhoneDisplay"></strong>
+        </p>
+        <div class="form-group">
+          <label>6-Digit OTP</label>
+          <input type="text" id="otpInput" class="form-input" placeholder="Enter 6 digits" maxlength="6" pattern="[0-9]{6}" required />
+        </div>
+        <button class="btn btn-primary" style="width:100%;" onclick="verifyOTP()">Confirm & Log In</button>
+        <button class="btn btn-secondary" style="width:100%;margin-top:0.75rem;" onclick="resendOTP()">Resend Code</button>
+        <button class="btn" style="width:100%;margin-top:0.5rem;font-size:0.85rem;" onclick="showRoleSelection()">← Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= VIEW 1: CATEGORIES OVERVIEW ================= -->
+  <div id="categoriesView">
+    <div class="hero-banner">
+      <h1>Reliable Home Repair, On Demand.</h1>
+      <p>Click a category below to explore verified technicians with transparent pricing.</p>
+    </div>
+
+    <div class="category-grid">
+      <div class="category-card" onclick="openCategoryListing('Plumber')">
+        <div class="category-icon">🔧</div>
+        <div class="category-name">Plumber</div>
+        <div class="category-desc">Pipe leaks, bathroom fittings, tap repairs</div>
+      </div>
+
+      <div class="category-card" onclick="openCategoryListing('Electrician')">
+        <div class="category-icon">⚡</div>
+        <div class="category-name">Electrician</div>
+        <div class="category-desc">Wiring, switchboards, MCB, lighting fixtures</div>
+      </div>
+
+      <div class="category-card" onclick="openCategoryListing('Carpenter')">
+        <div class="category-icon">🪚</div>
+        <div class="category-name">Carpenter</div>
+        <div class="category-desc">Furniture repair, door locks, woodwork fixes</div>
+      </div>
+
+      <div class="category-card" onclick="openCategoryListing('AC Repair')">
+        <div class="category-icon">❄️</div>
+        <div class="category-name">AC Repair</div>
+        <div class="category-desc">Servicing, gas refill, cooling diagnostics</div>
+      </div>
+
+      <div class="category-card" onclick="openCategoryListing('Computer Repair')">
+        <div class="category-icon">💻</div>
+        <div class="category-name">Computer Repair</div>
+        <div class="category-desc">OS installation, hardware upgrades, diagnostics</div>
+      </div>
+
+      <div class="category-card" onclick="openCategoryListing('Mechanic')">
+        <div class="category-icon">🚗</div>
+        <div class="category-name">Mechanic</div>
+        <div class="category-desc">Doorstep vehicle tuning, battery & brake fixes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= VIEW 2: DEDICATED PROVIDER LISTING PAGE ================= -->
+  <div id="providerListingView" class="hidden">
+    <div class="page-header">
+      <div>
+        <h2 id="categoryPageHeading" style="font-size:1.75rem;font-weight:800;">Technicians Available</h2>
+        <p style="color:var(--text-muted);font-size:0.925rem;margin-top:0.25rem;">Compare ratings, pricing, and book your technician instantly</p>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="navigateTo('categories')">← Back to All Services</button>
+    </div>
+
+    <div class="provider-grid" id="categoryProvidersContainer"></div>
+  </div>
+
+  <!-- ================= VIEW 3: CUSTOMER TRACKING VIEW ================= -->
+  <div id="trackingView" class="hidden">
+    <div class="page-header">
+      <h2 style="font-size:1.75rem;font-weight:800;">Active & Past Bookings</h2>
+      <button class="btn btn-secondary btn-sm" onclick="navigateTo('categories')">← Back to Services</button>
+    </div>
+    <div id="bookingCardsContainer"></div>
+  </div>
+
+  <!-- ================= VIEW 4: PARTNER DASHBOARD & ACCOUNT STATEMENT ================= -->
+  <div id="partnerDashboardView" class="hidden">
+    <div class="page-header">
+      <div>
+        <h2 style="font-size:1.75rem;font-weight:800;">Partner Portal & Statement</h2>
+        <p style="color:var(--text-muted);font-size:0.925rem;margin-top:0.25rem;">Manage incoming service requests, payouts, and customer ledger</p>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="navigateTo('categories')">Explore Services</button>
+    </div>
+
+    <!-- SUMMARY METRICS -->
+    <div class="summary-grid" id="partnerSummaryCards"></div>
+
+    <!-- INCOMING & ACTIVE BOOKINGS -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:1rem;">Manage Incoming Service Bookings</h3>
+      <div id="partnerBookingsContainer"></div>
+    </div>
+
+    <!-- FINANCIAL STATEMENT / LEDGER -->
     <div>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;">Account Statement & Settlements</h3>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1rem;">Breakdown of gross earnings, platform commission (10%), and net payouts.</p>
+      
+      <div class="statement-table-wrapper">
+        <table class="statement-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Date & Time</th>
+              <th>Customer</th>
+              <th>Status</th>
+              <th>Gross Amount</th>
+              <th>Fee (10%)</th>
+              <th>Net Payout</th>
+            </tr>
+          </thead>
+          <tbody id="statementTableBody"></tbody>
+        </table>
+      </div>
     </div>
-</nav>
+  </div>
 
-<section id="home">
-    <h1>Hi, I'm <span>Nilkantha Singha Roy</span></h1>
-    <p>Student Portfolio Website</p>
-</section>
+</div>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        Hi, I am Nilkantha Singha Roy, currently pursuing BCA.
-        I am passionate about learning programming and modern web technologies
-        and continuously improving my development skills.
-    </p>
+<!-- ================= BOOKING MODAL ================= -->
+<div id="bookingModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 style="font-size:1.35rem;font-weight:700;">Confirm Booking</h3>
+    <p id="modalProviderMeta" style="color:var(--text-muted);font-size:0.875rem;margin:0.25rem 0 1.5rem;">Provider Info</p>
 
-    <div class="skills">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">C</div>
-        <div class="skill">Python</div>
+    <form id="bookingForm" onsubmit="submitBooking(event)">
+      <div class="form-group">
+        <label>Preferred Date & Time</label>
+        <input type="datetime-local" id="bookDate" class="form-input" required />
+      </div>
+      <div class="form-group">
+        <label>Service Address / Landmark</label>
+        <input type="text" id="bookAddress" class="form-input" placeholder="House/Flat No, Street, Landmark" required />
+      </div>
+      <div class="form-group">
+        <label>Task Description / Problem Note</label>
+        <textarea id="bookNotes" class="form-input" rows="3" placeholder="Briefly describe what needs fixing..."></textarea>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:0.75rem;margin-top:1.5rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeBookingModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= RATING MODAL ================= -->
+<div id="ratingModal" class="modal-overlay hidden">
+  <div class="modal-box" style="text-align:center;">
+    <h3 style="font-size:1.3rem;font-weight:700;">Rate Service</h3>
+    <p style="color:var(--text-muted);font-size:0.875rem;margin-top:0.25rem;">How was your technician's work?</p>
+
+    <div class="star-rating" id="starContainer">
+      <span class="star" onclick="setRating(1)">★</span>
+      <span class="star" onclick="setRating(2)">★</span>
+      <span class="star" onclick="setRating(3)">★</span>
+      <span class="star" onclick="setRating(4)">★</span>
+      <span class="star" onclick="setRating(5)">★</span>
     </div>
-</section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>If you’d like to connect, feel free to email me.</p>
+    <textarea id="ratingFeedback" class="form-input" rows="2" placeholder="Leave a review comment (optional)..." style="margin-bottom:1.5rem;"></textarea>
 
-    <a href="mailto:nilkanthasingharoy8@gmail.com" class="contact-btn">
-        Contact Me
-    </a>
-</section>
+    <div style="display:flex;justify-content:center;gap:0.75rem;">
+      <button type="button" class="btn btn-secondary" onclick="closeRatingModal()">Skip</button>
+      <button type="button" class="btn btn-primary" onclick="submitRating()">Submit Review</button>
+    </div>
+  </div>
+</div>
 
-<footer>
-    © 2025 Nilkantha Singha Roy. All rights reserved.
-</footer>
+<script>
+/* ================= GLOBAL STATE ================= */
+let user = JSON.parse(localStorage.getItem("fixitCurrentUser")) || null;
+let currentCategory = "Plumber";
+let selectedProvider = null;
+let selectedRating = 5;
+let activeRatingBookingId = null;
+let currentAuthRole = "customer";
+let authFlowType = "login";
+let generatedOTP = "";
+let pendingAuthData = null;
+let uploadedPhotoDataUrl = "";
 
+/* DEFAULT PROVIDERS */
+const initialProviders = [
+  { id: 1, name: "Rajesh Waterworks", category: "Plumber", rating: 4.8, jobs: 240, rate: "₹300/hr", exp: "9 yrs exp", photo: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=200&auto=format&fit=crop&q=80" },
+  { id: 2, name: "QuickPipe Solutions", category: "Plumber", rating: 4.6, jobs: 85, rate: "₹250/task", exp: "4 yrs exp", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+  { id: 3, name: "Manoj Sanitary & Plumbing", category: "Plumber", rating: 4.9, jobs: 310, rate: "₹400/hr", exp: "12 yrs exp", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+  { id: 4, name: "Arun Sharma", category: "Electrician", rating: 4.9, jobs: 184, rate: "₹350/hr", exp: "7 yrs exp", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
+  { id: 5, name: "PowerGrid Fixes", category: "Electrician", rating: 4.7, jobs: 92, rate: "₹450/task", exp: "5 yrs exp", photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80" },
+  { id: 6, name: "Suresh Electricals", category: "Electrician", rating: 4.8, jobs: 140, rate: "₹300/hr", exp: "8 yrs exp", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80" },
+  { id: 7, name: "WoodCraft Studios", category: "Carpenter", rating: 4.9, jobs: 110, rate: "₹500/hr", exp: "11 yrs exp", photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80" },
+  { id: 8, name: "National Wood Works", category: "Carpenter", rating: 4.7, jobs: 65, rate: "₹450/task", exp: "6 yrs exp", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
+  { id: 9, name: "CoolWave Techs", category: "AC Repair", rating: 4.8, jobs: 310, rate: "₹450/task", exp: "6 yrs exp", photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&q=80" },
+  { id: 10, name: "FrostAir Services", category: "AC Repair", rating: 4.7, jobs: 195, rate: "₹500/hr", exp: "8 yrs exp", photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" },
+  { id: 11, name: "ByteLogic Repair", category: "Computer Repair", rating: 4.9, jobs: 156, rate: "₹600/task", exp: "8 yrs exp", photo: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200&auto=format&fit=crop&q=80" },
+  { id: 12, name: "Apex Auto Care", category: "Mechanic", rating: 4.7, jobs: 215, rate: "₹500/task", exp: "10 yrs exp", photo: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&auto=format&fit=crop&q=80" }
+];
+
+let providers = JSON.parse(localStorage.getItem("fixitProviders")) || initialProviders;
+let bookings = JSON.parse(localStorage.getItem("fixitBookings")) || [];
+
+/* ================= INITIALIZATION ================= */
+window.addEventListener("DOMContentLoaded", () => {
+  updateUserInterface();
+});
+
+/* ================= NAVIGATION CONTROLLER ================= */
+function navigateTo(viewName) {
+  document.getElementById("authView").classList.add("hidden");
+  document.getElementById("categoriesView").classList.add("hidden");
+  document.getElementById("providerListingView").classList.add("hidden");
+  document.getElementById("trackingView").classList.add("hidden");
+  document.getElementById("partnerDashboardView").classList.add("hidden");
+
+  if (viewName === "categories") {
+    document.getElementById("categoriesView").classList.remove("hidden");
+  } else if (viewName === "listing") {
+    document.getElementById("providerListingView").classList.remove("hidden");
+  } else if (viewName === "tracking") {
+    if (!user) { handleAuthButtonClick(); return; }
+    document.getElementById("trackingView").classList.remove("hidden");
+    renderBookings();
+  } else if (viewName === "partner_dashboard") {
+    if (!user || user.role !== "Partner") {
+      alert("Please log in as a Partner to access this page.");
+      showRoleSelection();
+      navigateTo("auth");
+      return;
+    }
+    document.getElementById("partnerDashboardView").classList.remove("hidden");
+    renderPartnerDashboard();
+  } else if (viewName === "auth") {
+    document.getElementById("authView").classList.remove("hidden");
+  }
+}
+
+function openCategoryListing(categoryName) {
+  currentCategory = categoryName;
+  document.getElementById("categoryPageHeading").innerText = `${categoryName}s Available Near You`;
+  renderCategoryProviders();
+  navigateTo("listing");
+}
+
+function renderCategoryProviders() {
+  const container = document.getElementById("categoryProvidersContainer");
+  const filtered = providers.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:3rem 0;">No ${currentCategory}s registered yet in your locality.</p>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(p => `
+    <div class="provider-card">
+      <div class="provider-top">
+        <img src="${p.photo || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&auto=format&fit=crop&q=80'}" class="provider-avatar" alt="${p.name}">
+        <div class="provider-info">
+          <h3>${p.name}</h3>
+          <div class="badge-verified">✓ Verified Specialist</div>
+        </div>
+      </div>
+
+      <div class="provider-stats">
+        <div>
+          <span class="stat-label">Rating</span>
+          <span class="stat-value">★ ${p.rating}</span>
+        </div>
+        <div>
+          <span class="stat-label">Rate</span>
+          <span class="stat-value">${p.rate}</span>
+        </div>
+        <div>
+          <span class="stat-label">Experience</span>
+          <span class="stat-value">${p.exp}</span>
+        </div>
+      </div>
+
+      <div style="font-size:0.85rem;color:var(--text-muted);">
+        Completed <strong>${p.jobs} jobs</strong> with 99% satisfaction rate.
+      </div>
+
+      <button class="btn btn-primary" onclick="openBookingModal(${p.id})">
+        Book This ${p.category}
+      </button>
+    </div>
+  `).join("");
+}
+
+/* ================= AUTHENTICATION LOGIC ================= */
+function updateUserInterface() {
+  const greeting = document.getElementById("userGreeting");
+  const authBtn = document.getElementById("authBtn");
+  const trackBtn = document.getElementById("trackNavBtn");
+  const partnerBtn = document.getElementById("partnerBookingsBtn");
+
+  if (user) {
+    greeting.innerText = `Hi, ${user.name} (${user.role})`;
+    greeting.classList.remove("hidden");
+    authBtn.innerText = "Logout";
+
+    if (user.role === "Partner") {
+      partnerBtn.classList.remove("hidden");
+      trackBtn.classList.add("hidden");
+    } else {
+      trackBtn.classList.remove("hidden");
+      partnerBtn.classList.add("hidden");
+    }
+  } else {
+    greeting.classList.add("hidden");
+    authBtn.innerText = "Login / Sign Up";
+    trackBtn.classList.add("hidden");
+    partnerBtn.classList.add("hidden");
+  }
+}
+
+function handleAuthButtonClick() {
+  if (user) {
+    user = null;
+    localStorage.removeItem("fixitCurrentUser");
+    updateUserInterface();
+    alert("You have logged out successfully.");
+    navigateTo("categories");
+  } else {
+    showRoleSelection();
+    navigateTo("auth");
+  }
+}
+
+function showRoleSelection() {
+  document.getElementById("roleSelectionStep").classList.remove("hidden");
+  document.getElementById("customerLoginStep").classList.add("hidden");
+  document.getElementById("customerSignupStep").classList.add("hidden");
+  document.getElementById("partnerSignupStep").classList.add("hidden");
+  document.getElementById("otpStep").classList.add("hidden");
+}
+
+function selectAuthRole(role) {
+  currentAuthRole = role;
+  document.getElementById("roleSelectionStep").classList.add("hidden");
+
+  if (role === "customer") {
+    showCustomerLogin();
+  } else {
+    showPartnerSignup();
+  }
+}
+
+function showCustomerLogin() {
+  document.getElementById("customerLoginStep").classList.remove("hidden");
+  document.getElementById("customerSignupStep").classList.add("hidden");
+  document.getElementById("partnerSignupStep").classList.add("hidden");
+  document.getElementById("otpStep").classList.add("hidden");
+}
+
+function showCustomerSignup() {
+  document.getElementById("customerLoginStep").classList.add("hidden");
+  document.getElementById("customerSignupStep").classList.remove("hidden");
+  document.getElementById("partnerSignupStep").classList.add("hidden");
+  document.getElementById("otpStep").classList.add("hidden");
+}
+
+function showPartnerSignup() {
+  document.getElementById("customerLoginStep").classList.add("hidden");
+  document.getElementById("customerSignupStep").classList.add("hidden");
+  document.getElementById("partnerSignupStep").classList.remove("hidden");
+  document.getElementById("otpStep").classList.add("hidden");
+}
+
+function handleCustomerLogin(e) {
+  e.preventDefault();
+  const phone = document.getElementById("custLoginPhone").value.trim();
+
+  const users = JSON.parse(localStorage.getItem("fixitUsers")) || [];
+  const existing = users.find(u => u.phone === phone && u.role === "Customer");
+
+  if (!existing) {
+    const goSignup = confirm("Phone number not registered as Customer.\nWould you like to sign up?");
+    if (goSignup) {
+      showCustomerSignup();
+      document.getElementById("custSignupPhone").value = phone;
+    }
+    return;
+  }
+
+  pendingAuthData = existing;
+  authFlowType = "login";
+  triggerOTP(phone);
+}
+
+function handleCustomerSignup(e) {
+  e.preventDefault();
+  const name = document.getElementById("custSignupName").value.trim();
+  const email = document.getElementById("custSignupEmail").value.trim();
+  const phone = document.getElementById("custSignupPhone").value.trim();
+
+  pendingAuthData = {
+    name: name,
+    email: email,
+    phone: phone,
+    role: "Customer"
+  };
+
+  authFlowType = "signup";
+  triggerOTP(phone);
+}
+
+function previewPhoto(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      uploadedPhotoDataUrl = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function handlePartnerSubmit(e) {
+  e.preventDefault();
+  const phone = document.getElementById("partnerPhone").value.trim();
+  const name = document.getElementById("partnerName").value.trim();
+  const category = document.getElementById("partnerCategory").value;
+  const exp = document.getElementById("partnerExp").value.trim();
+  const rate = document.getElementById("partnerRate").value.trim();
+
+  const users = JSON.parse(localStorage.getItem("fixitUsers")) || [];
+  const existing = users.find(u => u.phone === phone && u.role === "Partner");
+
+  if (existing) {
+    pendingAuthData = existing;
+    authFlowType = "login";
+  } else {
+    pendingAuthData = {
+      name: name,
+      category: category,
+      exp: `${exp} yrs exp`,
+      rate: rate,
+      phone: phone,
+      photo: uploadedPhotoDataUrl || "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=200&auto=format&fit=crop&q=80",
+      role: "Partner"
+    };
+    authFlowType = "partner_signup";
+  }
+
+  triggerOTP(phone);
+}
+
+function triggerOTP(phone) {
+  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+
+  document.getElementById("customerLoginStep").classList.add("hidden");
+  document.getElementById("customerSignupStep").classList.add("hidden");
+  document.getElementById("partnerSignupStep").classList.add("hidden");
+  document.getElementById("otpStep").classList.remove("hidden");
+
+  document.getElementById("otpPhoneDisplay").innerText = phone.substring(0, 2) + "******" + phone.substring(8);
+  document.getElementById("otpInput").value = "";
+
+  alert(`[FIXIT DEMO OTP]\n\nYour 6-digit verification code is: ${generatedOTP}`);
+}
+
+function resendOTP() {
+  if (pendingAuthData) {
+    triggerOTP(pendingAuthData.phone);
+  }
+}
+
+function verifyOTP() {
+  const code = document.getElementById("otpInput").value.trim();
+  if (code !== generatedOTP) {
+    alert("❌ Invalid OTP. Please check and try again.");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("fixitUsers")) || [];
+
+  if (authFlowType === "signup") {
+    users.push(pendingAuthData);
+    localStorage.setItem("fixitUsers", JSON.stringify(users));
+  } else if (authFlowType === "partner_signup") {
+    users.push(pendingAuthData);
+    localStorage.setItem("fixitUsers", JSON.stringify(users));
+
+    const newProvider = {
+      id: Date.now(),
+      name: pendingAuthData.name,
+      category: pendingAuthData.category,
+      rating: 5.0,
+      jobs: 0,
+      rate: pendingAuthData.rate,
+      exp: pendingAuthData.exp,
+      phone: pendingAuthData.phone,
+      photo: pendingAuthData.photo
+    };
+
+    providers.unshift(newProvider);
+    localStorage.setItem("fixitProviders", JSON.stringify(providers));
+  }
+
+  user = {
+    name: pendingAuthData.name,
+    phone: pendingAuthData.phone,
+    role: pendingAuthData.role,
+    category: pendingAuthData.category || ""
+  };
+
+  localStorage.setItem("fixitCurrentUser", JSON.stringify(user));
+  updateUserInterface();
+  alert(`✅ Welcome ${user.name}! Login successful.`);
+
+  if (user.role === "Partner") {
+    navigateTo("partner_dashboard");
+  } else {
+    navigateTo("categories");
+  }
+}
+
+/* ================= BOOKING FLOW ================= */
+function openBookingModal(providerId) {
+  if (!user) {
+    alert("Please log in before booking a technician.");
+    handleAuthButtonClick();
+    return;
+  }
+
+  selectedProvider = providers.find(p => p.id === providerId);
+  document.getElementById("modalProviderMeta").innerText = `Technician: ${selectedProvider.name} (${selectedProvider.category}) • Rate: ${selectedProvider.rate}`;
+  document.getElementById("bookingModal").classList.remove("hidden");
+}
+
+function closeBookingModal() {
+  document.getElementById("bookingModal").classList.add("hidden");
+  document.getElementById("bookingForm").reset();
+}
+
+function extractNumericRate(rateStr) {
+  if (!rateStr) return 400;
+  const match = rateStr.replace(/,/g, '').match(/\d+/);
+  return match ? parseInt(match[0], 10) : 400;
+}
+
+function submitBooking(e) {
+  e.preventDefault();
+
+  const newBooking = {
+    id: "FX-" + Math.floor(1000 + Math.random() * 9000),
+    userPhone: user.phone,
+    userName: user.name,
+    provider: selectedProvider,
+    date: document.getElementById("bookDate").value,
+    address: document.getElementById("bookAddress").value,
+    notes: document.getElementById("bookNotes").value,
+    statusIndex: 0, // 0: Requested, 1: Confirmed/Accepted, 2: In Progress, 3: Completed, 4: Rejected
+    amount: extractNumericRate(selectedProvider.rate),
+    rating: null,
+    feedback: ""
+  };
+
+  bookings.unshift(newBooking);
+  localStorage.setItem("fixitBookings", JSON.stringify(bookings));
+
+  closeBookingModal();
+  navigateTo("tracking");
+  alert("✅ Service booking requested! Waiting for the technician to accept.");
+}
+
+/* ================= CUSTOMER TRACKING ================= */
+function renderBookings() {
+  const container = document.getElementById("bookingCardsContainer");
+  const userBookings = bookings.filter(b => b.userPhone === user.phone);
+
+  if (userBookings.length === 0) {
+    container.innerHTML = `<p style="color:var(--text-muted);text-align:center;margin:3rem 0;">No active or past bookings found.</p>`;
+    return;
+  }
+
+  const steps = ["Requested", "Confirmed", "In Progress", "Completed"];
+
+  container.innerHTML = userBookings.map(b => {
+    if (b.statusIndex === 4) {
+      return `
+        <div class="tracking-card" style="border-left: 4px solid var(--danger);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div>
+              <h3 style="font-weight:700;">${b.provider.category} - ${b.provider.name}</h3>
+              <span style="font-size:0.85rem;color:var(--text-muted);">Ref: ${b.id} | Scheduled: ${b.date.replace("T", " ")}</span>
+            </div>
+            <span style="font-weight:700;color:var(--danger);">Booking Rejected / Cancelled</span>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-muted);">The technician was unavailable for this time slot. Please choose another technician or reschedule.</p>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="tracking-card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div>
+            <h3 style="font-weight:700;">${b.provider.category} - ${b.provider.name}</h3>
+            <span style="font-size:0.85rem;color:var(--text-muted);">
+              Ref: ${b.id} | Scheduled: ${b.date.replace("T", " ")} | Rate: ${b.provider.rate}
+            </span>
+          </div>
+          <span style="font-weight:700;color:var(--primary);">${steps[b.statusIndex]}</span>
+        </div>
+
+        <div class="track-steps">
+          ${steps.map((s, idx) => `
+            <div class="track-step ${idx < b.statusIndex ? 'completed' : ''} ${idx === b.statusIndex ? 'active' : ''}">
+              <div class="step-bullet">${idx < b.statusIndex ? '✓' : idx + 1}</div>
+              <div>${s}</div>
+            </div>
+          `).join("")}
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:1rem;">
+          <span style="font-size:0.85rem;color:var(--text-muted);">Address: ${b.address}</span>
+          ${b.statusIndex === 3 ? (
+            b.rating ? `<span style="font-weight:700;color:var(--warning);">Rated: ${'★'.repeat(b.rating)}</span>` :
+            `<button class="btn btn-primary btn-sm" onclick="openRatingModal('${b.id}')">Rate Technician</button>`
+          ) : `<span style="font-size:0.8rem;color:var(--text-muted);">${b.statusIndex === 0 ? 'Awaiting partner acceptance' : 'Service in schedule'}</span>`}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* ================= PARTNER DASHBOARD & ACCOUNT STATEMENT ================= */
+function renderPartnerDashboard() {
+  if (!user || user.role !== "Partner") return;
+
+  // Filter bookings assigned to this partner (match by name or category if shared demo)
+  const myBookings = bookings.filter(b => 
+    (b.provider && (b.provider.name === user.name || (b.provider.phone && b.provider.phone === user.phone))) ||
+    (!b.provider.phone && b.provider.name === user.name)
+  );
+
+  // Compute metrics
+  const completedBookings = myBookings.filter(b => b.statusIndex === 3);
+  const pendingBookings = myBookings.filter(b => b.statusIndex === 0);
+  
+  const grossEarnings = completedBookings.reduce((sum, b) => sum + (b.amount || extractNumericRate(b.provider.rate)), 0);
+  const platformFee = Math.round(grossEarnings * 0.10);
+  const netEarnings = grossEarnings - platformFee;
+
+  // 1. Render Summary Cards
+  const summaryContainer = document.getElementById("partnerSummaryCards");
+  summaryContainer.innerHTML = `
+    <div class="summary-card">
+      <div class="summary-card-title">Net Payouts</div>
+      <div class="summary-card-val" style="color:var(--success);">₹${netEarnings.toLocaleString()}</div>
+      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">Gross: ₹${grossEarnings.toLocaleString()} (10% Fee)</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-title">Completed Jobs</div>
+      <div class="summary-card-val">${completedBookings.length}</div>
+      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">Finished tasks</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-title">Pending Requests</div>
+      <div class="summary-card-val" style="color:var(--warning);">${pendingBookings.length}</div>
+      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">Awaiting your action</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-card-title">Partner Rating</div>
+      <div class="summary-card-val" style="color:#d97706;">★ 4.9</div>
+      <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">Based on customer reviews</div>
+    </div>
+  `;
+
+  // 2. Render Incoming & Active Requests
+  const partnerBookingsContainer = document.getElementById("partnerBookingsContainer");
+  if (myBookings.length === 0) {
+    partnerBookingsContainer.innerHTML = `<p style="color:var(--text-muted);padding:1.5rem;background:#fff;border-radius:var(--radius-md);border:1px solid var(--border);text-align:center;">No service bookings assigned to your profile yet.</p>`;
+  } else {
+    partnerBookingsContainer.innerHTML = myBookings.map(b => {
+      let statusBadge = "";
+      let actionButtons = "";
+
+      if (b.statusIndex === 0) {
+        statusBadge = `<span class="badge-status status-pending">Action Required</span>`;
+        actionButtons = `
+          <div style="display:flex;gap:0.5rem;margin-top:1rem;">
+            <button class="btn btn-success btn-sm" onclick="partnerAcceptBooking('${b.id}')">✓ Accept Booking</button>
+            <button class="btn btn-danger btn-sm" onclick="partnerRejectBooking('${b.id}')">✕ Reject</button>
+          </div>
+        `;
+      } else if (b.statusIndex === 1 || b.statusIndex === 2) {
+        statusBadge = `<span class="badge-status status-accepted">In Progress / Accepted</span>`;
+        actionButtons = `
+          <div style="display:flex;gap:0.5rem;margin-top:1rem;">
+            <button class="btn btn-primary btn-sm" onclick="partnerCompleteBooking('${b.id}')">Mark as Completed & Collect</button>
+          </div>
+        `;
+      } else if (b.statusIndex === 3) {
+        statusBadge = `<span class="badge-status status-completed">Completed</span>`;
+      } else if (b.statusIndex === 4) {
+        statusBadge = `<span class="badge-status status-rejected">Rejected</span>`;
+      }
+
+      return `
+        <div class="tracking-card" style="margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div>
+              <h4 style="font-size:1.05rem;font-weight:700;">Job ID: ${b.id} — ₹${b.amount || extractNumericRate(b.provider.rate)}</h4>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin:0.2rem 0;">
+                <strong>Client:</strong> ${b.userName || 'Customer'} (${b.userPhone}) • <strong>Date:</strong> ${b.date.replace("T", " ")}
+              </p>
+              <p style="font-size:0.85rem;color:var(--text-main);"><strong>Address:</strong> ${b.address}</p>
+              ${b.notes ? `<p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;"><em>Problem: "${b.notes}"</em></p>` : ''}
+            </div>
+            <div>${statusBadge}</div>
+          </div>
+          ${actionButtons}
+        </div>
+      `;
+    }).join("");
+  }
+
+  // 3. Render Account Statement Table
+  const tbody = document.getElementById("statementTableBody");
+  if (myBookings.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:2rem;">No transaction records available.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = myBookings.map(b => {
+    const gross = b.amount || extractNumericRate(b.provider.rate);
+    const fee = Math.round(gross * 0.10);
+    const net = gross - fee;
+
+    let tag = "";
+    if (b.statusIndex === 3) tag = `<span class="badge-status status-completed">Settled</span>`;
+    else if (b.statusIndex === 4) tag = `<span class="badge-status status-rejected">Cancelled</span>`;
+    else tag = `<span class="badge-status status-pending">Pending</span>`;
+
+    return `
+      <tr>
+        <td><strong>${b.id}</strong></td>
+        <td>${b.date.replace("T", " ")}</td>
+        <td>${b.userName || 'Customer'}</td>
+        <td>${tag}</td>
+        <td>₹${gross}</td>
+        <td>₹${fee}</td>
+        <td style="font-weight:700;color:${b.statusIndex === 3 ? 'var(--success)' : 'inherit'};">
+          ${b.statusIndex === 4 ? '₹0' : '₹' + net}
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+/* ================= PARTNER ACTIONS ================= */
+function partnerAcceptBooking(bookingId) {
+  const item = bookings.find(b => b.id === bookingId);
+  if (item) {
+    item.statusIndex = 1; // Confirmed / Accepted
+    localStorage.setItem("fixitBookings", JSON.stringify(bookings));
+    renderPartnerDashboard();
+    alert("✅ You have accepted the booking!");
+  }
+}
+
+function partnerRejectBooking(bookingId) {
+  const confirmReject = confirm("Are you sure you want to reject this booking?");
+  if (!confirmReject) return;
+
+  const item = bookings.find(b => b.id === bookingId);
+  if (item) {
+    item.statusIndex = 4; // Rejected
+    localStorage.setItem("fixitBookings", JSON.stringify(bookings));
+    renderPartnerDashboard();
+    alert("Booking rejected.");
+  }
+}
+
+function partnerCompleteBooking(bookingId) {
+  const item = bookings.find(b => b.id === bookingId);
+  if (item) {
+    item.statusIndex = 3; // Completed
+    localStorage.setItem("fixitBookings", JSON.stringify(bookings));
+    renderPartnerDashboard();
+    alert("🎉 Job marked as completed! Payment added to your statement ledger.");
+  }
+}
+
+/* ================= RATINGS ================= */
+function openRatingModal(bookingId) {
+  activeRatingBookingId = bookingId;
+  setRating(5);
+  document.getElementById("ratingFeedback").value = "";
+  document.getElementById("ratingModal").classList.remove("hidden");
+}
+
+function closeRatingModal() {
+  document.getElementById("ratingModal").classList.add("hidden");
+  activeRatingBookingId = null;
+}
+
+function setRating(val) {
+  selectedRating = val;
+  document.querySelectorAll("#starContainer .star").forEach((s, idx) => {
+    if (idx < val) s.classList.add("selected");
+    else s.classList.remove("selected");
+  });
+}
+
+function submitRating() {
+  const item = bookings.find(b => b.id === activeRatingBookingId);
+  if (item) {
+    item.rating = selectedRating;
+    item.feedback = document.getElementById("ratingFeedback").value.trim();
+    localStorage.setItem("fixitBookings", JSON.stringify(bookings));
+  }
+  closeRatingModal();
+  renderBookings();
+  alert("⭐ Thank you for rating your service!");
+}
+</script>
 </body>
 </html>
