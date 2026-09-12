@@ -1,432 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CloudTranscode | Serverless Video Transcoder</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Joydeep!</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <!-- Canvas for Confetti -->
+  <canvas id="confetti-canvas"></canvas>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">🎉 Today We Celebrate You!</span>
+      <h1 class="title">Happy Birthday,<br><span class="highlight">Joydeep Mukhopadhyay</span></h1>
+      <p class="subtitle">Wishing you a year filled with great adventures, boundless joy, success, and smiles!</p>
+      <button id="celebrateBtn" class="btn-primary">Pop Confetti 🎊</button>
+    </div>
+  </header>
 
-        <div class="logo">
-            <div class="logo-icon">▶</div>
-            <span>Cloud<span>Transcode</span></span>
+  <main class="container">
+    <!-- Featured Profile Card -->
+    <section class="profile-section">
+      <div class="profile-card">
+        <div class="profile-image-wrap">
+          <img src="1000192997.jpg" alt="Joydeep Mukhopadhyay" class="profile-img" />
         </div>
-
-        <div class="nav-links">
-            <a href="#dashboard">Dashboard</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="#jobs">Jobs</a>
+        <div class="profile-text">
+          <h2>To a Fantastic Friend & Brother</h2>
+          <p>
+            May your day be filled with warm smiles, memorable laughs, and genuine happiness. 
+            Here's to celebrating the wonderful person you are, your hard work, humor, and 
+            the amazing journey ahead. Keep shining bright! ✨
+          </p>
         </div>
-
-        <div class="aws-status">
-            <span class="status-dot"></span>
-            AWS Connected
-        </div>
-
-    </nav>
-
-
-    <!-- HERO -->
-    <section class="hero" id="dashboard">
-
-        <div class="hero-content">
-
-            <div class="badge">
-                <span>☁</span>
-                SERVERLESS VIDEO PROCESSING
-            </div>
-
-            <h1>
-                Convert your videos
-                <span>in the cloud.</span>
-            </h1>
-
-            <p>
-                Upload once and automatically generate multiple
-                resolutions and formats using AWS serverless services.
-            </p>
-
-            <div class="hero-services">
-                <span>S3</span>
-                <span>→</span>
-                <span>Lambda</span>
-                <span>→</span>
-                <span>MediaConvert</span>
-                <span>→</span>
-                <span>SNS</span>
-            </div>
-
-        </div>
-
+      </div>
     </section>
 
-
-    <!-- UPLOAD SECTION -->
-    <main class="container">
-
-        <section class="upload-section">
-
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">01 / UPLOAD</p>
-                    <h2>Upload your video</h2>
-                    <p class="muted">
-                        Your video will be securely uploaded to Amazon S3.
-                    </p>
-                </div>
-
-                <div class="bucket-info">
-                    <span class="bucket-icon">S3</span>
-                    <div>
-                        <small>Source Bucket</small>
-                        <strong id="bucketName">video-transcoder-input</strong>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- DROPZONE -->
-            <div class="dropzone" id="dropzone">
-
-                <input
-                    type="file"
-                    id="videoInput"
-                    accept="video/*"
-                    hidden
-                >
-
-                <div class="upload-icon">
-                    ↑
-                </div>
-
-                <h3>Drop your video here</h3>
-
-                <p>
-                    or click to browse from your computer
-                </p>
-
-                <span class="file-types">
-                    MP4 · MOV · AVI · MKV · WebM
-                </span>
-
-                <button class="browse-btn" id="browseBtn">
-                    Choose Video
-                </button>
-
-            </div>
-
-
-            <!-- SELECTED FILE -->
-            <div class="selected-file hidden" id="selectedFile">
-
-                <div class="file-icon">
-                    ▶
-                </div>
-
-                <div class="file-details">
-
-                    <strong id="fileName">
-                        video.mp4
-                    </strong>
-
-                    <span id="fileSize">
-                        0 MB
-                    </span>
-
-                </div>
-
-                <button class="remove-btn" id="removeBtn">
-                    ×
-                </button>
-
-            </div>
-
-
-            <!-- SETTINGS -->
-            <div class="settings-card">
-
-                <div class="settings-header">
-                    <div>
-                        <p class="eyebrow">02 / OUTPUT</p>
-                        <h3>Transcoding settings</h3>
-                    </div>
-
-                    <span class="settings-label">
-                        MediaConvert
-                    </span>
-                </div>
-
-
-                <div class="setting-grid">
-
-                    <div class="setting">
-
-                        <label>Output resolutions</label>
-
-                        <div class="checkbox-group">
-
-                            <label class="check-option">
-                                <input
-                                    type="checkbox"
-                                    value="1080p"
-                                    checked
-                                >
-                                <span>1080p</span>
-                            </label>
-
-                            <label class="check-option">
-                                <input
-                                    type="checkbox"
-                                    value="720p"
-                                    checked
-                                >
-                                <span>720p</span>
-                            </label>
-
-                            <label class="check-option">
-                                <input
-                                    type="checkbox"
-                                    value="480p"
-                                >
-                                <span>480p</span>
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="setting">
-
-                        <label>Output format</label>
-
-                        <select id="formatSelect">
-
-                            <option value="mp4">
-                                MP4
-                            </option>
-
-                            <option value="hls">
-                                HLS
-                            </option>
-
-                            <option value="both">
-                                MP4 + HLS
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="transcode-btn"
-                    id="transcodeBtn"
-                    disabled
-                >
-                    <span>Start Transcoding</span>
-                    <span>→</span>
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- JOB STATUS -->
-        <section class="jobs-section" id="jobs">
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="eyebrow">03 / PROCESSING</p>
-                    <h2>Recent jobs</h2>
-                </div>
-
-                <button class="refresh-btn" id="refreshBtn">
-                    ↻ Refresh
-                </button>
-
-            </div>
-
-
-            <div class="jobs-card">
-
-                <div class="job-table-header">
-                    <span>VIDEO</span>
-                    <span>STATUS</span>
-                    <span>OUTPUTS</span>
-                    <span>TIME</span>
-                </div>
-
-
-                <div id="jobsList">
-
-                    <div class="empty-jobs">
-
-                        <div class="empty-icon">
-                            ◌
-                        </div>
-
-                        <h3>No transcoding jobs yet</h3>
-
-                        <p>
-                            Upload a video to create your first job.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ARCHITECTURE -->
-        <section class="architecture" id="how-it-works">
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="eyebrow">04 / ARCHITECTURE</p>
-                    <h2>How the system works</h2>
-                </div>
-
-            </div>
-
-
-            <div class="architecture-flow">
-
-                <div class="architecture-card">
-
-                    <div class="service-number">01</div>
-
-                    <div class="service-icon s3">
-                        S3
-                    </div>
-
-                    <h3>Amazon S3</h3>
-
-                    <p>
-                        Stores the uploaded source video securely.
-                    </p>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="architecture-card">
-
-                    <div class="service-number">02</div>
-
-                    <div class="service-icon lambda">
-                        λ
-                    </div>
-
-                    <h3>AWS Lambda</h3>
-
-                    <p>
-                        Detects the upload and starts a transcoding job.
-                    </p>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="architecture-card">
-
-                    <div class="service-number">03</div>
-
-                    <div class="service-icon media">
-                        MC
-                    </div>
-
-                    <h3>MediaConvert</h3>
-
-                    <p>
-                        Generates different resolutions and formats.
-                    </p>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="architecture-card">
-
-                    <div class="service-number">04</div>
-
-                    <div class="service-icon sns">
-                        SNS
-                    </div>
-
-                    <h3>Amazon SNS</h3>
-
-                    <p>
-                        Sends a notification when processing completes.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
-            CloudTranscode
+    <!-- Memories Gallery Section -->
+    <section class="gallery-section">
+      <h2 class="section-title">Cherished Moments & Memories</h2>
+      <p class="section-subtitle">A glimpse of the fun, classes, and everyday camaraderie.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="1000377304.jpg" alt="Joydeep smiling" />
+          <div class="caption">Pure smiles & laughter 😄</div>
         </div>
 
-        <p>
-            Serverless Video Transcoder · AWS Project
-        </p>
-
-        <div class="footer-services">
-            S3 · Lambda · MediaConvert · SNS
+        <div class="gallery-item">
+          <img src="1000435487.jpg" alt="College day" />
+          <div class="caption">Campus vibes 📚</div>
         </div>
 
-    </footer>
+        <div class="gallery-item">
+          <img src="1000451107.jpg" alt="Ready to ride" />
+          <div class="caption">Rainy ride adventures 🌧️🏍️</div>
+        </div>
 
+        <div class="gallery-item">
+          <img src="1000294335.jpg" alt="Classroom moment" />
+          <div class="caption">Chill moments in class ✨</div>
+        </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <span id="toastMessage">
-            Upload started
-        </span>
-    </div>
+        <div class="gallery-item">
+          <img src="1000197242.jpg" alt="Joydeep focused" />
+          <div class="caption">Focused & in the zone 📱</div>
+        </div>
 
+        <div class="gallery-item">
+          <img src="1000340035.jpg" alt="Joydeep outdoors" />
+          <div class="caption">Sunshine & good energy ☀️</div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="gallery-item">
+          <img src="1000257045.jpg" alt="Fun classroom candid" />
+          <div class="caption">Unfiltered candid laughs 📸</div>
+        </div>
 
+        <div class="gallery-item">
+          <img src="1000451104.jpg" alt="Official portrait" />
+          <div class="caption">Always looking sharp! 👔</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Crafted with ❤️ for <strong>Joydeep Mukhopadhyay</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
